@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var kudosSchema = new Schema({
-    title: String,
+    sender: String,
+    receiver: String,
     body: String
 });
 
