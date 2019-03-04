@@ -1,0 +1,16 @@
+h4 {
+    float: right;
+}
+
+h1 {
+    float: left;
+}
+
+#username-input, #password-input {
+    width: 80%;
+}
+
+#registerTxt {
+    margin-top: 80px;
+    margin-bottom: 10px;
+}
