@@ -1,4 +1,4 @@
-const render = function(kudos) {
+const renderKudos = function(kudos) {
     $('#kudos').empty();
     for(let i = 0; i < kudos.length; i++) {
         $('#kudos').append(`
@@ -9,10 +9,27 @@ const render = function(kudos) {
     }
 }
 
+const renderUsers = function(users) {
+    $('#kudoReceiver').empty();
+    $('#kudoSender').empty();
+    for(let i = 0; i < users.length; i++) {
+        $('#kudoReceiver').append(`
+        <option value="${users[i].username}">${users[i].username}</option>`)
+        $('#kudoSender').append(`
+        <option value="${users[i].username}">${users[i].username}</option>`)
+    }
+}
+
 $.get('/api/kudos') 
 .then(function(data) {
     console.log(data);
-    render(data);
+    renderKudos(data);
+})
+
+$.get('/api/users')
+.then(function(data) {
+    console.log(data);
+    renderUsers(data);
 })
 
 
