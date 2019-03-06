@@ -40,7 +40,11 @@ module.exports = function(app) {
   });
 
   app.post("/api/user", function(req, res) {
-    User.create(req.body)
+    const newUser = {
+      username: req.body.username
+    };
+    
+    User.create(newUser)
       .then(function(data) {
         res.json(data);
       })

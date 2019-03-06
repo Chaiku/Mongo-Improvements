@@ -3,8 +3,9 @@ const renderKudos = function(kudos) {
     for(let i = 0; i < kudos.length; i++) {
         $('#kudos').append(`
         <div class="row">
-            <h4>${kudos.title}</h4>
-            <p>${kudos.body}</p>
+            <h4>${kudos.to}</h4>
+            <h6>${kudos.from}</h6>
+            <p>${kudos.body}<p>
         </div>`)
     }
 }
@@ -33,25 +34,26 @@ $.get('/api/user')
 })
 
 
-const signUp = function(event) {
-    event.preventDefault();
-    const username = $('#username-input').val().trim();
-    const password = $('#password-input').val().trim();
+// const signUp = function(event) {
+//     event.preventDefault();
+//     const username = $('#username-input').val().trim();
+//     const password = $('#password-input').val().trim();
 
-    $.post('/api/user', {username: username})
-    .then(function(data){
-        console.log(data);
-    });
-};
+//     $.post('/api/user', {username: username})
+//     .then(function(data){
+//         console.log(data);
+//     });
+// };
 
-$('#signUpBtn').on('click', signUp);
+// $('#signUpBtn').on('click', signUp);
 
 const giveKudo = function(event) {
     event.preventDefault();
-    const title = $('#kudoTitle').val().trim();
     const body = $('#kudoBody').val().trim();
+    const to = $('#kudoReceiver').val().trim();
+    const from = $('#kudoSender').val().trim();
 
-    $.post('/api/kudo', {title: title, body: body})
+    $.post('/api/kudo', {body: body, to: to, from: from})
     .then(function(data){
         console.log(data);
     });
