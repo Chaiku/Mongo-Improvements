@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var kudosSchema = new Schema({
-    sender: String,
-    receiver: String,
-    body: String
+    body: String,
+    to: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    from: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 });
 
 const Kudo = mongoose.model('Kudo', kudosSchema);

@@ -20,13 +20,13 @@ const renderUsers = function(users) {
     }
 }
 
-$.get('/api/kudos') 
+$.get('/api/kudo') 
 .then(function(data) {
     console.log(data);
     renderKudos(data);
 })
 
-$.get('/api/users')
+$.get('/api/user')
 .then(function(data) {
     console.log(data);
     renderUsers(data);
@@ -38,7 +38,7 @@ const signUp = function(event) {
     const username = $('#username-input').val().trim();
     const password = $('#password-input').val().trim();
 
-    $.post('/api/users', {username: username, password: password})
+    $.post('/api/user', {username: username, password: password})
     .then(function(data){
         console.log(data);
     });
@@ -51,7 +51,7 @@ const giveKudo = function(event) {
     const title = $('#kudoTitle').val().trim();
     const body = $('#kudoBody').val().trim();
 
-    $.post('/api/kudos', {title: title, body: body})
+    $.post('/api/kudo', {title: title, body: body})
     .then(function(data){
         console.log(data);
     });

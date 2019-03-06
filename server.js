@@ -7,9 +7,9 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
-app.use(express.static('./public'));
-
-mongoose.connect('mongodb://localhost/tinyImprovements', { useNewUrlParser: true });
+app.use(express.static('public'));
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/improvementsdb"
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 require('./routes/api-routes.js')(app);
 require('./routes/html-routes.js')(app);
