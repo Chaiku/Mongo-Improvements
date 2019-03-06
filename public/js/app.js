@@ -38,7 +38,7 @@ const signUp = function(event) {
     const username = $('#username-input').val().trim();
     const password = $('#password-input').val().trim();
 
-    $.post('/api/user', {username: username, password: password})
+    $.post('/api/user', {username: username})
     .then(function(data){
         console.log(data);
     });
@@ -58,3 +58,5 @@ const giveKudo = function(event) {
 };
 
 $('#kudoBtn').on('click', giveKudo);
+
+
