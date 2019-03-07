@@ -18,3 +18,8 @@ h1 {
 #kudoReceiver {
     float: right;
 }
+
+#kudoBody {
+    width: 80%;
+    height: 40px;
+}
