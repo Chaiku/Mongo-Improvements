@@ -1,11 +1,15 @@
+$(document).ready(function() {
+
+
+
 const renderKudos = function(kudos) {
     $('#kudos').empty();
     for(let i = 0; i < kudos.length; i++) {
         $('#kudos').append(`
         <div class="row">
-            <h4>${kudos.to}</h4>
-            <h6>${kudos.from}</h6>
-            <p>${kudos.body}<p>
+            <h4>${kudos[i].to}</h4>
+            <h6>${kudos[i].from}</h6>
+            <p>${kudos[i].body}<p>
         </div>`)
     }
 }
@@ -57,8 +61,15 @@ const giveKudo = function(event) {
     .then(function(data){
         console.log(data);
     });
+
+    $.get('/api/kudo')
+    .then(function(data) {
+        renderKudos(data);
+    })
+
+
 };
 
 $('#kudoBtn').on('click', giveKudo);
 
-
+})
