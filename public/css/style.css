@@ -23,3 +23,11 @@ h1 {
     width: 80%;
     height: 40px;
 }
+
+.toDisp, .fromDisp, .bodyDisp {
+    text-align: center;
+}
+
+.kudoDisp {
+    border: 1px solid black;
+}

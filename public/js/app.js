@@ -6,17 +6,19 @@ const renderKudos = function(kudos) {
     $('#kudos').empty();
     for(let i = 0; i < kudos.length; i++) {
         $('#kudos').append(`
+    <div class="row kudoDisp">
         <div class="row">
-            <div class="col-sm-6">
-                <h4>${kudos[i].to}</h4>
+            <div class="col-sm-6 toDisp">
+                <h4>To: ${kudos[i].to}</h4>
             </div>
-            <div class="col-sm-6">
-                <h6>${kudos[i].from}</h6>
+            <div class="col-sm-6 fromDisp">
+                <h6>From: ${kudos[i].from}</h6>
             </div>
         </div>
-        <div class="row">
+        <div class="row bodyDisp">
             <p>${kudos[i].body}<p>
-        </div>`)
+        </div>
+    </div>`)
     }
 }
 
