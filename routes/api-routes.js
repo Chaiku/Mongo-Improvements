@@ -24,6 +24,7 @@ module.exports = function(app) {
 
   app.post("/api/kudo", function(req, res) {
     const newKudo = {
+      title: req.body.title,
       body: req.body.body,
       to: req.body.to,
       from: req.body.from

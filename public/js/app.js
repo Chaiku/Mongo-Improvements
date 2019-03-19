@@ -6,17 +6,18 @@ const renderKudos = function(kudos) {
     $('#kudos').empty();
     for(let i = 0; i < kudos.length; i++) {
         $('#kudos').append(`
-    <div class="row kudoDisp">
+    <div class="container-fluid kudoDisp">
         <div class="row">
             <div class="col-sm-6 toDisp">
-                <h4>To: ${kudos[i].to}</h4>
+                <h5>To: ${kudos[i].to}</h5>
             </div>
             <div class="col-sm-6 fromDisp">
-                <h6>From: ${kudos[i].from}</h6>
+                <h5>From: ${kudos[i].from}</h5>
             </div>
         </div>
         <div class="row bodyDisp">
-            <p>${kudos[i].body}<p>
+            <h4>${kudos[i].title}</h4>
+            <p>${kudos[i].body}</p>
         </div>
     </div>`)
     }
@@ -61,11 +62,12 @@ $.get('/api/user')
 
 const giveKudo = function(event) {
     event.preventDefault();
+    const title = $('#kudoTitle').val().trim();
     const body = $('#kudoBody').val().trim();
     const to = $('#kudoReceiver').val().trim();
     const from = $('#kudoSender').val().trim();
 
-    $.post('/api/kudo', {body: body, to: to, from: from})
+    $.post('/api/kudo', {title: title, body: body, to: to, from: from})
     .then(function(data){
         console.log(data);
     });

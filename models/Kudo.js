@@ -2,9 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var kudosSchema = new Schema({
+    title: String,
     body: String,
     to: String,
-    from: String
+    from: String,
 });
 
 const Kudo = mongoose.model('Kudo', kudosSchema);
@@ -12,5 +13,3 @@ const Kudo = mongoose.model('Kudo', kudosSchema);
 module.exports = Kudo;
 
 
-// to: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-// from: [{ type: Schema.Types.ObjectId, ref: 'User' }]
